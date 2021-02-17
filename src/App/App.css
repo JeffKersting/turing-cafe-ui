@@ -17,3 +17,15 @@
   font-family: 'Pacifico', cursive;
   font-size: 50px;
 }
+
+.resy-container {
+  display: grid;
+  width: 90vw;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 250px));
+  grid-gap: 1.5em;
+}
+
+.reservation-card {
+  height: 15em;
+  background: white;
+}

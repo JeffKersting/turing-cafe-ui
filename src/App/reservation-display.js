@@ -6,6 +6,7 @@ function ReservationCard(reservationData) {
       <h1 className="name">{reservationData.name}</h1>
       <h2 className="date">{reservationData.date}</h2>
       <h2 className="time">{reservationData.time}</h2>
+      <button>Cancel</button>
     </span>
   )
 }
