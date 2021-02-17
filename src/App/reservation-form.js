@@ -14,26 +14,41 @@ class ReservationForm extends Component {
   handleChange(event) {
     switch(event.target.id) {
       case 'name':
-        console.log('Name form')
+        this.setState( {name : event.target.value} )
+        if(this.state.time) console.log('test')
         break
       case 'date':
-          console.log('Date')
-          break
+        this.setState( {date: event.target.value} )
+        break
       case 'time':
-          console.log('Time')
-          break
+        this.setState( {time: event.target.value} )
+        break
       case 'guests':
-          console.log('Guests')
-          break
+        this.setState( {guests: event.target.value} )
+        break
+      default:
+        return
     }
   }
+
+  handleSubmit = (event) => {
+    event.preventDefault()
+
+    console.log('submitted')
+
+
+  }
+
   render() {
+    const { name, date, time, guests} = this.state
+    const enableSubmit = name.length > 0 && date.length > 0 && time.length > 0 && guests.length > 0
     return (
       <form onSubmit={this.handleSubmit}>
-        <input type='text' id='name' placeholder='Name' onChange={this.handleChange}/>
-        <input type='date' id='date' placeholder='Date (mm/dd)' onChange={this.handleChange}/>
-        <input type='time' id='time' placeholder='Time' onChange={this.handleChange}/>
-        <input type='number' id='time' placeholder='Number of Guests' onChange={this.handleChange}/>
+        <input type='text' id='name' placeholder='Name' value={this.state.name} onChange={event => this.handleChange(event)}/>
+        <input type='date' id='date' placeholder='Date (mm/dd)' value={this.state.date} onChange={event => this.handleChange(event)}/>
+        <input type='time' id='time' placeholder='Time' value={this.state.time} onChange={event => this.handleChange(event)}/>
+        <input type='number' id='guests' placeholder='Number of Guests' value={this.state.guests} onChange={event => this.handleChange(event)}/>
+        <input type='submit' value='Make Reservation' disabled={!enableSubmit}/>
       </form>
     )
   }

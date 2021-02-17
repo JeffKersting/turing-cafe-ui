@@ -14,10 +14,13 @@ class App extends Component {
 
   componentDidMount() {
     fetchRequests.getReservations()
-      .then(response => this.setState({reservations: response}))
-
-
+      .then(response => this.setState({reservations: response}) )
   }
+
+  handleReservation(newReservation) {
+    this.setState( {reservations: [...this.state.reservations, newReservation]} )
+  }
+
   render() {
     return (
       <div className="App">
