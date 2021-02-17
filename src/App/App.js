@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+import fetchRequests from './fetch-requests'
 
 class App extends Component {
   constructor() {
@@ -7,6 +8,13 @@ class App extends Component {
     this.state = {
       reservations: [],
     }
+  }
+
+  componentDidMount() {
+    fetchRequests.getReservations()
+      .then(response => this.setState({reservations: response}))
+
+
   }
   render() {
     return (
