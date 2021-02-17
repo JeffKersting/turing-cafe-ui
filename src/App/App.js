@@ -26,7 +26,7 @@ class App extends Component {
       <div className="App">
         <h1 className='app-title'>Turing Cafe Reservations</h1>
         <div className='resy-form'>
-          <ReservationForm />
+          <ReservationForm handleReservation={event => this.handleReservation(event)}/>
         </div>
         <div className='resy-container'>
           {this.state.reservations.map(reservation => ReservationCard(reservation))}

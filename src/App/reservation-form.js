@@ -31,11 +31,23 @@ class ReservationForm extends Component {
     }
   }
 
+  createReservationObj() {
+    const splitDate = this.state.date.split('-')
+    const formattedDate = `${splitDate[1]}/${splitDate[2]}`
+    const reservation = {
+      date: formattedDate,
+      id: 10,
+      name: this.state.name,
+      number: this.state.guests,
+      time: this.state.time
+    }
+    return reservation
+  }
+
   handleSubmit = (event) => {
     event.preventDefault()
-
-    console.log('submitted')
-
+    const newReservation = this.createReservationObj()
+    this.props.handleReservation(newReservation)
 
   }
 
