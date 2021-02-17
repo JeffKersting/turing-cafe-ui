@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import fetchRequests from './fetch-requests'
+import ReservationCard from './reservation-display'
 
 class App extends Component {
   constructor() {
@@ -21,13 +22,7 @@ class App extends Component {
       <div className="App">
         <h1 className='app-title'>Turing Cafe Reservations</h1>
         <div className='resy-form'>
-          <form>
-            <input placeholder='Name' type='text'/>
-            <input type='date' placeholder='mm/dd'/>
-            <input type='time'/>
-            <input type='number'placeholder='Number of guests'/>
-            <button>Make Reservation</button>
-          </form>
+          {this.state.reservations.map(reservation => ReservationCard(reservation))}
         </div>
         <div className='resy-container'>
 
