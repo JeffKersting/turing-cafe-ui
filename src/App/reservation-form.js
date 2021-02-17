@@ -60,7 +60,7 @@ class ReservationForm extends Component {
         <input type='date' id='date' placeholder='Date (mm/dd)' value={this.state.date} onChange={event => this.handleChange(event)}/>
         <input type='time' id='time' placeholder='Time' value={this.state.time} onChange={event => this.handleChange(event)}/>
         <input type='number' id='guests' placeholder='Number of Guests' value={this.state.guests} onChange={event => this.handleChange(event)}/>
-        <input type='submit' value='Make Reservation' disabled={!enableSubmit}/>
+        <input type='submit' id='submit' value='Make Reservation' disabled={!enableSubmit}/>
       </form>
     )
   }
